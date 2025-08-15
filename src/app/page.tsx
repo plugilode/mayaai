@@ -148,6 +148,31 @@ export default function Home() {
                       ))}
                     </ul>
                   </nav>
+ <nav className="glass rounded-xl p-4 text-emerald-200/90 mt-4">
+ <ul className="space-y-2 text-xs font-bold">
+ <li>
+ <button className="flex items-center gap-2 hover:text-white transition-colors w-full text-left">
+ <span className="flex items-center border border-white/20 rounded-[2px]">
+ <div className="w-4 h-3 bg-[#00247d]"></div>
+ <div className="w-4 h-3 bg-[#cf142b]"></div>
+ <div className="w-4 h-3 bg-[#ffffff]"></div>
+ </span>
+ English
+ </button>
+ </li>
+ <li>
+ <button className="flex items-center gap-2 hover:text-white transition-colors w-full text-left">
+ <span className="flex items-center border border-white/20 rounded-[2px]">
+ <div className="w-3 h-3 bg-[#009b48]"></div>
+ <div className="w-3 h-3 bg-[#ffffff]"></div>
+ <div className="w-3 h-3 bg-[#bf0a30]"></div>
+ </span>
+ Spanish
+ </button>
+ </li>
+ <li><button className="flex items-center gap-2 hover:text-white transition-colors w-full text-left"><span className="flex items-center border border-white/20 rounded-[2px]"><div className="w-3 h-3 bg-[#000000]"></div><div className="w-3 h-3 bg-[#dd0000]"></div><div className="w-3 h-3 bg-[#ffce00]"></div></span> German</button></li>
+ </ul>
+ </nav>
                 </div>
                 <div className="text-xs text-white/50">Hecho en México</div>
               </aside>

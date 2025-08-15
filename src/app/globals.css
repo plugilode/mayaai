@@ -146,7 +146,22 @@
   height: 64px;
   border-radius: 9999px;
   background: radial-gradient(circle at 50% 50%, rgba(52,211,153,0.95), rgba(16,185,129,0.92));
-  box-shadow: 0 0 28px -6px rgba(16,185,129,0.9);
+  box-shadow:
+    0 0 20px 5px rgba(52,211,153,0.6), /* Initial glow */
+    inset 0 0 15px rgba(255,255,255,0.8); /* Inner highlight */
+  overflow: hidden; /* To contain the shiny effect */
+  transition: box-shadow 0.3s ease-in-out;
+}
+.ring-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4), rgba(255,255,255,0) 70%);
+  transform: rotate(45deg);
+  animation: shine 2s linear infinite;
 }
 .ring-button::before {
   content: "";
@@ -157,6 +172,18 @@
   filter: blur(6px);
 }
 
+@keyframes shine {
+  0% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(45deg) translate(100%, 100%);
+  }
+}
+
+.ring-button:hover {
+  box-shadow: 0 0 30px 8px rgba(52,211,153,0.8), inset 0 0 20px rgba(255,255,255,1);
+}
 /* Subtle waving effect for the background flag */
 .flag-wave {
  animation: flagWave 18s ease-in-out infinite alternate;
