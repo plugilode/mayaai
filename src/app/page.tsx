@@ -66,7 +66,13 @@ export default function Home() {
       formData.append('chatId', currentChat.id);
     }
 
-    setChatHistory((prev: Array<{ type: 'user' | 'assistant'; content: string }>) => [...prev, { type: 'user', content: userMessage }]);
+    setChatHistory((prev: Array<{ type: 'user' | 'assistant'; content: string }>) => [
+      ...prev,
+      { type: 'user', content: userMessage },
+    ]);
+    if (!currentChat) {
+      setCurrentChat({ id: 'local', demo: '' });
+    }
 
     try {
       const response = await fetch('/api/gemini', {

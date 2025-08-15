@@ -27,8 +27,9 @@ export async function POST(request: NextRequest) {
       throw new Error('Empty response from Gemini API');
     }
     return NextResponse.json({ content: text });
-  } catch (err: any) {
-    console.error('Gemini API Error:', err?.message || err);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('Gemini API Error:', message);
     return NextResponse.json({ error: 'Failed to process Gemini request' }, { status: 500 });
   }
 }
