@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+.glow-arc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180vw;
+  height: 180vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: #4f46e5;
+  box-shadow: 0 0 150px 70px #4f46e5;
+  animation: rotate 20s linear infinite;
+  opacity: 0.3;
+}
+
+/* Faint planet earth overlay over background */
+.earth-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 70% 40%, rgba(255,255,255,0.08), rgba(0,0,0,0) 70%),
+    url('/globe.svg');
+  background-repeat: no-repeat;
+  background-position: 70% 35%, 70% 35%;
+  background-size: 800px 800px, 800px 800px;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: earthDrift 120s linear infinite;
+}
+
+@keyframes earthDrift {
+  0% { background-position: 65% 38%, 65% 38%; }
+  50% { background-position: 72% 32%, 72% 32%; }
+  100% { background-position: 65% 38%, 65% 38%; }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Subtle neon circuit-style overlay */
+.circuit-overlay {
+  background-image:
+    radial-gradient(600px 300px at 70% 30%, rgba(16,185,129,0.18), transparent 60%),
+    radial-gradient(400px 200px at 30% 70%, rgba(59,130,246,0.18), transparent 60%),
+    linear-gradient(
+      135deg,
+      transparent 0 25%, rgba(255,255,255,0.04) 25% 26%, transparent 26% 50%,
+      rgba(255,255,255,0.04) 50% 51%, transparent 51% 75%, rgba(255,255,255,0.04) 75% 76%, transparent 76% 100%
+    );
+  background-size: 100% 100%, 100% 100%, 40px 40px;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+
+/* Helper glow for elements */
+.neon-shadow-emerald {
+  box-shadow: 0 0 30px -6px rgba(16,185,129,0.8), inset 0 0 20px -10px rgba(16,185,129,0.6);
+}
+
+/* Neon glass card with teal outline */
+.neon-card {
+  position: relative;
+  background: rgba(3, 10, 18, 0.55);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 22px -8px rgba(94, 234, 212, 0.6),
+    inset 0 0 40px -28px rgba(94, 234, 212, 0.6);
+}
+
+.neon-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgba(94,234,212,0.25), transparent 70%),
+    radial-gradient(40% 60% at 100% 100%, rgba(59,130,246,0.18), transparent 70%);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+/* Neon green button */
+.neon-button {
+  position: relative;
+  background: linear-gradient(180deg, rgba(52,211,153,0.95), rgba(16,185,129,0.92));
+  border: 1px solid rgba(110, 231, 183, 0.7);
+  box-shadow:
+    0 0 26px -6px rgba(16,185,129,0.9),
+    inset 0 0 24px -14px rgba(255,255,255,0.6);
+}
+
+.neon-button::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 14px;
+  border: 1px solid rgba(16,185,129,0.45);
+  filter: blur(6px);
+  opacity: 0.8;
+}
+
+.neon-button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 36px -4px rgba(16,185,129,0.95),
+    inset 0 0 28px -12px rgba(255,255,255,0.65);
+}
+
+/* Holographic grid overlay */
+.holo-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(16,185,129,0.18), transparent 40%),
+    linear-gradient(rgba(94,234,212,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,234,212,0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 60px 60px, 60px 60px;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Glass panel generic */
+.glass {
+  background: rgba(3,10,18,0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(94,234,212,0.35);
+  box-shadow: 0 0 22px -10px rgba(94,234,212,0.6), inset 0 0 36px -28px rgba(94,234,212,0.5);
+}
+
+/* Circular ring button */
+.ring-button {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 50%, rgba(52,211,153,0.95), rgba(16,185,129,0.92));
+  box-shadow: 0 0 28px -6px rgba(16,185,129,0.9);
+}
+.ring-button::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  border: 1px solid rgba(16,185,129,0.5);
+  filter: blur(6px);
+}
+
+/* Subtle waving effect for the background flag */
+.flag-wave {
+  animation: flagWave 18s ease-in-out infinite;
+  background-size: 110% 110% !important;
+}
+
+@keyframes flagWave {
+  0% { background-position: 0% 50%; transform: translateZ(0); }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flag-wave { animation: none; }
+}
+
+/* Stronger glass for better readability (used on suggestion buttons) */
+.glass-strong {
+  background: rgba(2, 6, 12, 0.72);
+  border: 1px solid rgba(94,234,212,0.45);
+  box-shadow:
+    0 10px 24px -14px rgba(0,0,0,0.8),
+    0 0 22px -10px rgba(16,185,129,0.6),
+    inset 0 0 24px -18px rgba(94,234,212,0.5);
+}
+
+/* Perspective helper */
+.perspective-1200 { perspective: 1200px; }
+
+/* Holographic rotating monitor */
+.holo-monitor {
+  position: absolute;
+  width: 140px;
+  height: 90px;
+  right: 3rem;
+  top: 32%;
+  transform-style: preserve-3d;
+  animation: monitorSpin 12s linear infinite;
+}
+.holo-monitor::after {
+  /* glow base */
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 16px;
+  background: radial-gradient(60% 50% at 50% 50%, rgba(16,185,129,0.35), transparent 70%);
+  filter: blur(10px);
+}
+.holo-monitor .screen {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(2, 8, 14, 0.55), rgba(5, 18, 26, 0.35));
+  border: 1px solid rgba(94,234,212,0.6);
+  box-shadow: 0 0 22px -8px rgba(16,185,129,0.8), inset 0 0 40px -28px rgba(94,234,212,0.6);
+  transform: translateZ(30px);
+  overflow: hidden;
+}
+
+/* Waving flag content inside the monitor screen */
+.flag-window {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: 140% 140%;
+  animation: flagWave 16s ease-in-out infinite;
+}
+
+.flag-window-germany {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 33.333%,
+      rgba(221,0,0,0.55) 33.333%, rgba(221,0,0,0.55) 66.666%,
+      rgba(255,206,0,0.55) 66.666%, rgba(255,206,0,0.55) 100%
+    );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.holo-monitor .side {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(94,234,212,0.25);
+  background: linear-gradient(180deg, rgba(6, 20, 28, 0.3), rgba(6, 20, 28, 0.15));
+}
+.holo-monitor .left { transform: rotateY(-90deg) translateZ(70px); }
+.holo-monitor .right { transform: rotateY(90deg) translateZ(70px); }
+.holo-monitor .back { transform: rotateY(180deg) translateZ(30px); }
+
+@keyframes monitorSpin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Mexican flag tri-color gradient text */
+.mexico-gradient-text {
+  background: linear-gradient(90deg, #16a34a 0%, #16a34a 33%, #ffffff 33%, #ffffff 66%, #dc2626 66%, #dc2626 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* German flag horizontal stripes overlay to mix with background */
+.flag-mix-germany {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.80) 33.333%,
+      rgba(221,0,0,0.70) 33.333%, rgba(221,0,0,0.70) 66.666%,
+      rgba(255,206,0,0.70) 66.666%, rgba(255,206,0,0.70) 100%
+    );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
