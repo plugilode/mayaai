@@ -159,11 +159,11 @@
 
 /* Subtle waving effect for the background flag */
 .flag-wave {
-  animation: flagWave 18s ease-in-out infinite;
-  background-size: 110% 110% !important;
+ animation: flagWave 18s ease-in-out infinite alternate;
+  background-size: 120% 120% !important;
 }
 
-@keyframes flagWave {
+@keyframes flagWave { /* Existing keyframes, modified for better effect */
   0% { background-position: 0% 50%; transform: translateZ(0); }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }

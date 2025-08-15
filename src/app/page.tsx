@@ -118,7 +118,7 @@ export default function Home() {
           {/* Background image and overlays */}
           <div
             className="absolute inset-0 bg-center bg-cover flag-wave"
-            style={{ backgroundImage: "url('/maya-bg.png')" }}
+            style={{ backgroundImage: "url('/mexico-germany-bg.png')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-teal-900/30" />
           <div className="earth-overlay" />
@@ -159,7 +159,7 @@ export default function Home() {
                   <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                     <span className="mexico-gradient-text">Maya AI</span>
                   </h1>
-                  <p className="text-white/70 mt-1">Enter your prompt to generate a custom application</p>
+                  <p className="text-white/70 mt-1">Build your website, App or anything else with AI (Made in Mexico)</p>
                 </div>
 
                 {/* Textarea with counter */}
@@ -187,7 +187,7 @@ export default function Home() {
                   <div className="screen">
                     <div
                       className="flag-window"
-                      style={{ backgroundImage: "url('/maya-bg.png')" }}
+                      style={{ backgroundImage: "url('/mexico-germany-bg.png')" }}
                     />
                     <div className="flag-window-germany" />
                   </div>
