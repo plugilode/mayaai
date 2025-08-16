@@ -52,8 +52,9 @@ export async function POST(request: NextRequest) {
       id: chat.id,
       demo: chat.demo,
     });
-  } catch (error: any) {
-    console.error('V0 API Error:', error?.message || error);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('V0 API Error:', message);
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 },
