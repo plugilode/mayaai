@@ -57,6 +57,16 @@ export default function Home() {
     const userMessage = message.trim();
     setMessage('');
     setIsLoading(true);
+    // Ensure the chat view opens so the user can see progress and results
+    setCurrentChat((prev) =>
+      prev ?? {
+        id:
+          (typeof crypto !== 'undefined' && 'randomUUID' in crypto)
+            ? crypto.randomUUID()
+            : String(Date.now()),
+        demo: '',
+      },
+    );
     const formData = new FormData();
     formData.append('message', userMessage);
     if (selectedFile) {
